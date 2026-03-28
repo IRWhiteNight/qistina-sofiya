@@ -58,25 +58,25 @@ function startCinematic() {
 function imageClicked() {
   const herImageBox = document.getElementById("videoBox");
   const myImageBox = document.getElementById("myImageBox");
-  const afterVideo = document.getElementById("afterVideo");
 
-  // hide her image
-  herImageBox.style.display = "none";
+  // fade her image out
+  herImageBox.style.transition = "0.5s";
+  herImageBox.style.opacity = "0";
 
-  // show your image
-  myImageBox.classList.remove("hidden");
-
-  // after a moment → continue
   setTimeout(() => {
-    myImageBox.style.display = "none";
-    afterVideo.classList.remove("hidden");
+    herImageBox.style.display = "none";
 
-    const music = document.getElementById("bgMusic");
-    music.volume = 0.5;
-    music.play().catch(() => {});
-  }, 2000);
+    // show your image
+    myImageBox.classList.remove("hidden");
+    myImageBox.style.opacity = "0";
+    myImageBox.style.transition = "0.5s";
+
+    setTimeout(() => {
+      myImageBox.style.opacity = "1";
+    }, 50);
+
+  }, 500);
 }
-
 // -------------------
 // MOBILE AUTOPLAY FIX
 // -------------------
@@ -107,4 +107,22 @@ function nextMessage() {
     document.getElementById("msgBox").classList.add("hidden");
     document.getElementById("final").classList.remove("hidden");
   }
+}
+
+function myImageClicked() {
+  const myImageBox = document.getElementById("myImageBox");
+  const afterVideo = document.getElementById("afterVideo");
+
+  // small animation
+  myImageBox.style.transform = "scale(1.05)";
+  myImageBox.style.transition = "0.3s";
+
+  setTimeout(() => {
+    myImageBox.style.display = "none";
+    afterVideo.classList.remove("hidden");
+
+    const music = document.getElementById("bgMusic");
+    music.volume = 0.5;
+    music.play().catch(() => {});
+  }, 500);
 }

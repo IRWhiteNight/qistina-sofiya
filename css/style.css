@@ -133,3 +133,16 @@ button:hover {
   border-radius: 15px;
   animation: fade 1s ease;
 }
+
+#videoBox, #myImageBox {
+  transition: opacity 0.5s ease;
+}
+
+.hidden {
+  display: none !important;
+}
+
+#videoBox, #myImageBox {
+  cursor: pointer;
+  animation: float 3s ease-in-out infinite;
+}
