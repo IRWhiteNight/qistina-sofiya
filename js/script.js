@@ -45,33 +45,36 @@ function checkName() {
 // VIDEO + MUSIC FLOW
 // -------------------
 function startCinematic() {
-  const video = document.getElementById("video");
-  const videoBox = document.getElementById("videoBox");
+  const image = document.getElementById("mainImage");
+
+  // fade in effect
+  image.style.opacity = "0";
+  setTimeout(() => {
+    image.style.transition = "1s";
+    image.style.opacity = "1";
+  }, 500);
+}
+
+function imageClicked() {
+  const herImageBox = document.getElementById("videoBox");
+  const myImageBox = document.getElementById("myImageBox");
   const afterVideo = document.getElementById("afterVideo");
-  const music = document.getElementById("bgMusic");
 
-  // 🔇 ensure EVERYTHING is silent first
-  
+  // hide her image
+  herImageBox.style.display = "none";
 
-  video.classList.remove("hidden");
-  video.play();
+  // show your image
+  myImageBox.classList.remove("hidden");
 
-  video.onended = () => {
+  // after a moment → continue
+  setTimeout(() => {
+    myImageBox.style.display = "none";
+    afterVideo.classList.remove("hidden");
 
-    video.style.transition = "1s ease";
-    video.style.opacity = "0";
-
-    setTimeout(() => {
-
-      videoBox.style.display = "none";
-      afterVideo.classList.remove("hidden");
-
-      // 🎵 ONLY NOW music starts
-      music.volume = 0.5;
-      music.play().catch(() => {});
-
-    }, 1000);
-  };
+    const music = document.getElementById("bgMusic");
+    music.volume = 0.5;
+    music.play().catch(() => {});
+  }, 2000);
 }
 
 // -------------------

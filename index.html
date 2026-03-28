@@ -24,27 +24,30 @@
   <input id="nameInput" placeholder="Type your name...">
   <button onclick="checkName()">Unlock</button>
   <p id="error"></p>
-</div>
+</div> 
 
 <!-- STAGE 3 -->
 <div id="stage3" class="card hidden">
   <h2>Oh… it’s you ❤️</h2>
 </div>
 
-<!-- STAGE 4 -->
+<!-- STAGE 4 --> 
 <div id="stage4" class="card hidden">
 
-  <div id="videoBox">
-<video id="video" playsinline muted>
-  <source src="videos/qis.mp4" type="video/mp4">
-</video>
-  </div>
+<div id="videoBox">
+  <img id="mainImage" src="img/qis.jpeg" onclick="imageClicked()">
+  <p id="tapHint">Tap the image 💗</p>
+</div>
+
+<div id="myImageBox" class="hidden">
+  <img id="myImage" src="img/me.jpg">
+  <p>It’s me… 😄</p>
+</div> 
 
   <div id="afterVideo" class="hidden">
 <audio id="bgMusic" loop>
   <source src="music/beautiful.mp3" type="audio/mp3">
 </audio>
-  <h2>💗 What now?</h2>
 
   <button id="startMsgBtn" onclick="startMessages()">
     💌 Read my heart
