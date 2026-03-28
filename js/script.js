@@ -75,7 +75,7 @@ function imageClicked() {
       myImageBox.style.opacity = "1";
     }, 50);
 
-  }, 5000);
+  }, 500);
 }
 // -------------------
 // MOBILE AUTOPLAY FIX
@@ -124,5 +124,5 @@ function myImageClicked() {
     const music = document.getElementById("bgMusic");
     music.volume = 0.5;
     music.play().catch(() => {});
-  }, 5000);
+  }, 500);
 }
