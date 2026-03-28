@@ -58,25 +58,25 @@ function startCinematic() {
 function imageClicked() {
   const herImageBox = document.getElementById("videoBox");
   const myImageBox = document.getElementById("myImageBox");
+  const afterVideo = document.getElementById("afterVideo");
 
-  // fade her image out
-  herImageBox.style.transition = "0.5s";
-  herImageBox.style.opacity = "0";
+  // hide her image
+  herImageBox.style.display = "none";
 
+  // show your image
+  myImageBox.classList.remove("hidden");
+
+  // after a moment → continue
   setTimeout(() => {
-    herImageBox.style.display = "none";
+    myImageBox.style.display = "none";
+    afterVideo.classList.remove("hidden");
 
-    // show your image
-    myImageBox.classList.remove("hidden");
-    myImageBox.style.opacity = "0";
-    myImageBox.style.transition = "0.5s";
-
-    setTimeout(() => {
-      myImageBox.style.opacity = "1";
-    }, 50);
-
-  }, 500);
+    const music = document.getElementById("bgMusic");
+    music.volume = 0.5;
+    music.play().catch(() => {});
+  }, 2000);
 }
+
 // -------------------
 // MOBILE AUTOPLAY FIX
 // -------------------
