@@ -75,7 +75,7 @@ function imageClicked() {
       myImageBox.style.opacity = "1";
     }, 50);
 
-  }, 500);
+  }, 5000);
 }
 // -------------------
 // MOBILE AUTOPLAY FIX
