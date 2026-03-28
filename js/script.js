@@ -124,5 +124,5 @@ function myImageClicked() {
     const music = document.getElementById("bgMusic");
     music.volume = 0.5;
     music.play().catch(() => {});
-  }, 500);
+  }, 5000);
 }
