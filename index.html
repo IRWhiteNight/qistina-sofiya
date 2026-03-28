@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Something for You ❤️</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- STAGE 1 -->
+<div id="stage1" class="card">
+  <h1>💗 A small secret</h1>
+  <p>Only one person can open this</p>
+  <button onclick="start()">Tap to continue 💕</button>
+</div>
+
+<!-- STAGE 2 -->
+<div id="stage2" class="card hidden">
+  <h2>Who are you?</h2>
+  <input id="nameInput" placeholder="Type your name...">
+  <button onclick="checkName()">Unlock</button>
+  <p id="error"></p>
+</div>
+
+<!-- STAGE 3 -->
+<div id="stage3" class="card hidden">
+  <h2>Oh… it’s you ❤️</h2>
+</div>
+
+<!-- STAGE 4 -->
+<div id="stage4" class="card hidden">
+
+  <div id="videoBox">
+<video id="video" playsinline muted>
+  <source src="videos/qis.mp4" type="video/mp4">
+</video>
+  </div>
+
+  <div id="afterVideo" class="hidden">
+<audio id="bgMusic" loop>
+  <source src="music/beautiful.mp3" type="audio/mp3">
+</audio>
+  <h2>💗 What now?</h2>
+
+  <button id="startMsgBtn" onclick="startMessages()">
+    💌 Read my heart
+  </button>
+
+  <div id="msgBox" class="hidden">
+    <p id="msgText"></p>
+
+    <button id="nextMsgBtn" onclick="nextMessage()">
+      Next ➜
+    </button>
+  </div>
+
+  <div id="final" class="hidden">
+    <h1>✨ Nur Qistina Sofiya ✨</h1>
+    <p>You are someone I’ll always appreciate 💖</p>
+  </div>
+
+</div>
+
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
