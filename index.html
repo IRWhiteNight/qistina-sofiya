@@ -1,75 +1,250 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ms">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Something for You ❤️</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Untuk Awak 🤍</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    } 
 
-<link rel="stylesheet" href="css/style.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #5e2731, #ac4d74, #ffb7cd);
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 420px;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(14px);
+      border-radius: 24px;
+      padding: 28px 22px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+      animation: fadeUp 0.8s ease;
+    }
+
+    h1 {
+      font-size: 1.7rem;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+
+    p {
+      line-height: 1.8;
+      font-size: 0.98rem;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 18px;
+      padding: 14px;
+      border: none;
+      border-radius: 14px;
+      background: white;
+      color: #ff4f81;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.02);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    #messageBox {
+      margin-top: 20px;
+      min-height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #messageText {
+      animation: fadeUp 0.6s ease;
+    }
+
+    .final {
+      margin-top: 10px;
+    }
+
+    .heart {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      animation: float 2.5s ease-in-out infinite;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- STAGE 1 -->
-<div id="stage1" class="card">
-  <h1>💗 A small secret</h1>
-  <p>Only one person can open this</p>
-  <button onclick="start()">Tap to continue 💕</button>
-</div>
+  <audio id="bgMusic" autoplay loop>
+    <source src="music/lagu.mp3" type="audio/mp3">
+  </audio>
 
-<!-- STAGE 2 -->
-<div id="stage2" class="card hidden">
-  <h2>Who are you?</h2>
-  <input id="nameInput" placeholder="Type your name...">
-  <button onclick="checkName()">Unlock</button>
-  <p id="error"></p>
-</div> 
+  <div class="card">
+    <div class="heart">🤍</div>
+    <h1>Untuk Awak</h1>
+    <h2>Nur Qistina Sofiya</h2>
 
-<!-- STAGE 3 -->
-<div id="stage3" class="card hidden">
-  <h2>Oh… it’s you ❤️</h2>
-</div>
+    <div id="messageBox">
+      <p id="messageText">Ada sesuatu yang saya ingin sampaikan…</p>
+    </div>
 
-<!-- STAGE 45 --> 
-<div id="stage4" class="card hidden">
+    <button id="nextBtn" onclick="nextMessage()">Baca ➜</button>
 
-<div id="videoBox">
-  <img id="mainImage" src="img/qis.jpeg" onclick="imageClicked()">
-  <p id="tapHint">Tap the image 💗</p>
-</div>
-
-<div id="myImageBox" class="hidden" onclick="myImageClicked()">
-  <img id="myImage" src="img/me.png">
-  <p>Tap me 😄</p>
-</div>
-
-  <div id="afterVideo" class="hidden">
-<audio id="bgMusic" loop>
-  <source src="music/beautiful.mp3" type="audio/mp3">
-</audio>
-
-  <button id="startMsgBtn" onclick="startMessages()">
-    💌 Read my heart
-  </button>
-<!-- deploy fix -->
-  <div id="msgBox" class="hidden">
-    <p id="msgText"></p>
-
-    <button id="nextMsgBtn" onclick="nextMessage()">
-      Next ➜
-    </button>
+    <div id="finalSection" class="hidden final">
+      <p>
+        Terima kasih sebab pernah hadir dalam hidup saya.<br><br>
+        Terima kasih sebab pernah menjadi seseorang yang sangat bermakna dalam hati saya.<br><br>
+        Walaupun akhirnya saya terpaksa melepaskan,
+        percayalah… perasaan ini tidak pernah palsu.<br><br>
+        Saya akan belajar untuk reda,
+        tetapi doa saya untuk awak tidak akan pernah berhenti.<br><br>
+        Jika suatu hari nanti awak teringat tentang saya,
+        cukuplah sekadar tahu… saya pernah benar-benar mencintai awak.<br><br>
+        Jaga diri baik-baik, Nur Qistina Sofiya 🤍
+      </p>
+    </div>
   </div>
 
-  <div id="final" class="hidden">
-    <h1>✨ Nur Qistina Sofiya ✨</h1>
-    <p>You are someone I’ll always appreciate 💖</p>
-  </div>
+  <script>
+    // hanya boleh dibuka selepas 5:30 petang
+    function checkAccessTime() {
+      const now = new Date();
+      const hour = now.getHours();
+      const minute = now.getMinutes();
 
-</div>
+      const currentMinutes = (hour * 60) + minute;
+      const allowedMinutes = (17 * 60) + 30; // 5:30 PM
+      //const currentMinutes = (hour * 60) + minute;
+      //const allowedMinutes = (9 * 60) + 50; // 9:50 AM
 
-</div>
+      if (currentMinutes < allowedMinutes) {
+        document.body.innerHTML = `
+          <div style="
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-family: Poppins, sans-serif;
+          ">
+            <div style="
+              max-width: 420px;
+              background: rgba(255,255,255,0.15);
+              backdrop-filter: blur(14px);
+              padding: 30px;
+              border-radius: 24px;
+              box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+            ">
+              <h2>🤍 Belum Tiba Waktunya</h2>
+              <p style="margin-top:; line-height:1.8;">
+                Ada sesuatu yang istimewa menunggu untuk awak…<br><br>
+                Tetapi ia hanya boleh dibuka selepas jam <b>5:30 Petang</b> 🤍<br><br>
+                Saya mahu awak membacanya pada waktu yang tepat,
+                supaya setiap kata dapat sampai terus ke hati awak.<br><br>
+                Jadi, datanglah semula nanti ya ✨
+              </p>
+            </div>
+          </div>
+        `;
+        return false;
+      }
+      return true;
+    }
 
-<script src="js/script.js"></script>
+    if (checkAccessTime()) {
+    const messages = [
+      "Saya benar-benar ikhlas menyayangi awak… lebih daripada yang awak pernah tahu.",
+      "Saya cuba bertahan dalam diam, berharap dalam senyap, dan mencintai tanpa meminta balasan.",
+      "Setiap hari, saya cuba yakinkan diri bahawa mungkin suatu hari nanti… awak akan nampak saya.",
+      "Tetapi semakin lama, saya semakin sedar… tidak semua yang kita sayang akan menjadi milik kita.",
+      "Kadang-kadang, cinta bukan tentang memiliki… tetapi tentang merelakan.",
+      "Dan percayalah, melepaskan awak adalah perkara paling sakit yang pernah saya lakukan.",
+      "Bukan kerana saya sudah penat mencintai… tetapi kerana saya terlalu penat berharap seorang diri.",
+      "Saya tahu mungkin takdir memang tidak pernah menulis nama kita dalam satu cerita yang sama.",
+      "Saya mengalah… bukan sebab saya lemah, tetapi sebab saya terlalu sayang untuk terus memaksa.",
+      "Saya mahu awak hidup bahagia, walaupun kebahagiaan itu bukan bersama saya.",
+      "Saya mahu awak berjaya, sihat, tenang, dan dicintai oleh seseorang yang awak juga menyayanginya.",
+      "Kalau selama ini kehadiran saya pernah mengganggu hidup awak… saya benar-benar minta maaf.",
+      "Kalau saya pernah melukakan hati awak, membuat awak tidak selesa, atau menjadi beban… saya minta maaf sepenuh hati.",
+      "Saya tak pernah berniat menyakitkan… saya cuma terlalu ikhlas menyayangi awak.",
+      "Dan mungkin… melepaskan awak adalah cara terakhir saya untuk mencintai awak dengan betul.",
+      "Selepas ini, saya akan perlahan-lahan pergi… bukan kerana saya sudah lupa, tetapi kerana saya harus belajar reda."
+    ];
+
+    let index = 0;
+
+    function nextMessage() {
+      const text = document.getElementById("messageText");
+      const final = document.getElementById("finalSection");
+      const btn = document.getElementById("nextBtn");
+
+      if (index < messages.length) {
+        text.innerText = messages[index];
+        index++;
+      } else {
+        text.classList.add("hidden");
+        btn.classList.add("hidden");
+        final.classList.remove("hidden");
+      }
+    }
+  
+    // autoplay fix for mobile browsers
+    document.addEventListener("click", function () {
+      const music = document.getElementById("bgMusic");
+      music.volume = 0.5;
+      music.play().catch(() => {});
+    }, { once: true });
+      }
+
+    // autoplay fix for mobile browsers
+    document.addEventListener("click", function () {
+      const music = document.getElementById("bgMusic");
+      music.volume = 0.5;
+      music.play().catch(() => {});
+    }, { once: true });
+  </script>
+
 </body>
 </html>
